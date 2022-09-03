@@ -11,7 +11,7 @@
 		"--gpus=all",
 		"-e=DISPLAY=${env:DISPLAY}",
 		"-v=/tmp/.X11-unix:/tmp/.X11-unix",
-		// "--device=/dev/video0:/dev/video0",
+		"--device=/dev/video0:/dev/video0",
 		"--ipc=host"
 	]	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
