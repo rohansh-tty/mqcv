@@ -1,5 +1,5 @@
-# zeromq-opencv-template
-Stream video frames using OpenCV &amp; ZeroMQ
+# mqcv
+Template repo that helps in streaming video frames using OpenCV &amp; ZeroMQ
 
 
 ![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
@@ -13,7 +13,7 @@ Run this command in terminal, before starting docker
 $ xhost+
 ```
 
-Build the docker container using docker file. Make sure camera is on and not busy. 
+Build the docker container using docker file. Make sure camera device is on and not busy. 
 
 To start the server
 
