@@ -7,8 +7,6 @@ RUN apt-get -y install libgl1-mesa-glx && python3 -m pip install opencv-python
 
 # install python3 packages from requirements.txt
 COPY requirements.txt /opt/app/requirements.txt
-COPY run.sh /opt/app/run.sh
-
 WORKDIR /opt/app
 RUN python3 -m pip install -r requirements.txt
 
