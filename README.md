@@ -20,38 +20,46 @@ By using ZeroMQ, we can decouple the camera capture and video processing from th
 ## Prerequisites
 
 * Camera device available and not in use
+* Python 3.x installed on your system
 * `xhost+` command executed in the terminal before starting the Docker container (allows the container to access the camera device)
 
 ## Usage
 
-Run this command in a terminal, before starting
+**Step 1:** Enable X11 Forwarding
+Before starting the Docker container, you need to enable X11 forwarding on your system. Run the following command in your terminal:
 ```
 $ xhost+
 ```
 
-Make sure the camera device is on and not busy. 
+**Step 2:** Build the Docker Container
+Build the Docker container using the provided Dockerfile:
+```
+$ docker build -t <image-name> .
+```
+Replace <image-name> with the desired name for your Docker image. Make sure the camera device is on and not busy during this step.
 
-To start the server
+**Step 3:** Start the Server
+To start the server, run the following command in your terminal:
+```
+$ python3 server.py
+```
+This command starts the server, which listens for incoming connections from the client.
 
- ```
- $ python3 server.py
- ```
- 
- To start the client
+**Step 4:** Start the Client
+To start the client, run the following command in your terminal:
+```
+$ python3 client.py
+```
+This command starts the client, which connects to the server and captures video frames from the camera device.
 
- ```
- $ python3 client.py
- ```
+## Notes
 
-### Notes
+- Make sure the camera device is properly configured and connected to your system before running the application.
+- The server and client scripts assume that the camera device is accessible and configured correctly.
+- You may need to modify the Dockerfile or the server/client scripts to accommodate specific requirements for your camera device or system configuration.
 
-* Make sure to execute `xhost+` in the terminal before starting the Docker container to allow the container to access the camera device.
-* Ensure that the camera device is available and not in use before starting the server.
-* You can adjust the camera settings (e.g., resolution, frame rate) by modifying the `server.py` script.
+## Troubleshooting
 
-### Troubleshooting
-
-* Verify that the camera device is available and not in use.
-
-
-
+- If you encounter issues with X11 forwarding, try restarting the Docker container or checking the X11 display settings on your system.
+- If you encounter issues with the camera device, try restarting the camera device or checking the camera settings on your system.
+- If you encounter issues with the server or client scripts, try debugging the scripts or checking the error logs for more information.
